@@ -1,0 +1,54 @@
+.header {
+  $self: &;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding: 0 25px;
+  background-color: #1890ff;
+  font-size: 16px;
+
+  &__logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &:hover {
+      opacity: 0.9;
+    }
+    cursor: pointer;
+
+    #{$self}__img {
+      width: 33px;
+    }
+
+    #{$self}__title {
+      margin-left: 10px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+    }
+  }
+
+  &__navigation {
+    margin-right: 17px;
+
+    #{$self}__ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      flex-direction: row;
+    }
+
+    #{$self}__link {
+      color: #fff;
+      margin-left: 17px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
