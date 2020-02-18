@@ -7,24 +7,8 @@
   &__content {
     display: flex;
     flex-direction: column;
-    text-align: center;
     margin-bottom: 50px;
     width: 430px;
-
-    #{$self}__title {
-      text-align: center;
-      margin-bottom: 30px;
-      h2 {
-        font-size: 28px;
-        margin-bottom: 5px;
-      }
-      p {
-        font-size: 18px;
-        line-height: 21px;
-        letter-spacing: 0.1px;
-        opacity: 0.5;
-      }
-    }
 
     #{$self}__button {
       text-transform: uppercase;
@@ -38,5 +22,15 @@
       display: flex;
       justify-content: space-between;
     }
+  }
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+
+  &__h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
   }
 }

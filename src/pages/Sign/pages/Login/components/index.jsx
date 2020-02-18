@@ -6,38 +6,61 @@ import Wrapper from "pages/Sign/components/Wrapper";
 import FormField from "pages/Sign/components/FormField";
 import styles from "pages/Sign/styles.module.scss";
 
-const Login = props => (
+const Login = ({
+  values,
+  touched,
+  errors,
+  isSubmitting,
+  handleChange,
+  handleBlur,
+  handleSubmit,
+  isValid
+}) => (
   <div>
-    <div className={styles.sign__title}>
-      <h2>Вход</h2>
+    <div className={styles.title}>
+      <h2 className={styles.title__h2}>Вход</h2>
     </div>
     <Wrapper>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <FormField
-          name='Username'
-          type='text'
-          placeholder='Имя пользователя'
-          icon='user'
+          name="email"
+          type="text"
+          placeholder="Логин (e-mail)"
+          icon="mail"
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+          values={values}
+          errors={errors}
+          touched={touched}
+          hasFeedback={!values.email}
         />
         <FormField
-          name='Password'
-          type='password'
-          placeholder='Пароль'
-          icon='lock'
+          name="password"
+          type="password"
+          placeholder="Пароль"
+          icon="lock"
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+          values={values}
+          errors={errors}
+          touched={touched}
+          hasFeedback={!values.password}
         />
         <Form.Item>
           <Button
-            type='primary'
-            size='large'
-            htmlType='submit'
-            className={styles.sign__button}>
+            type="primary"
+            size="large"
+            htmlType="submit"
+            loading={isSubmitting}
+            className={styles.sign__button}
+          >
             Войти
           </Button>
         </Form.Item>
         <Form.Item>
           <div className={styles.sign__other}>
-            <Link to='signup'>Регистрация</Link>
-            <Link to='forgot'>Забыли пароль?</Link>
+            <Link to="signup">Регистрация</Link>
+            <Link to="forgot">Забыли пароль?</Link>
           </div>
         </Form.Item>
       </Form>

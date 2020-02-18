@@ -1,22 +1,30 @@
 import React from "react";
 import { Form, Icon, Input } from "antd";
 
+import validateStatus from "./validateStatus";
+
 const FormField = ({
-  validateStatus,
   name,
   type,
   placeholder,
   icon,
   values,
   handleChange,
-  handleBlur
+  handleBlur,
+  errors,
+  touched,
+  hasFeedback
 }) => (
-  <Form.Item validateStatus={validateStatus} hasFeedback>
+  <Form.Item
+    hasFeedback={hasFeedback}
+    validateStatus={validateStatus(touched[name], errors[name])}
+    help={touched[name] && errors[name]}
+  >
     <Input
       id={name}
       type={type}
       placeholder={placeholder}
-      value={values}
+      value={values[name]}
       onChange={handleChange}
       onBlur={handleBlur}
       prefix={<Icon type={icon} style={{ color: "rgba(0,0,0,.25)" }} />}
