@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Register from "./pages/Register/components";
+import Register from "./pages/Register";
 import Login from "./pages/Login/components";
 import styles from "./styles.module.scss";
 
