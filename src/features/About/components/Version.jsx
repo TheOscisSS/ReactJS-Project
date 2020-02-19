@@ -1,14 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 const Version = () => {
-  const projectVersion = process.env.REACT_APP_PROJECT_VERSION;
+  const projectVersion = process.env.REACT_APP_VERSION;
 
   return (
-    <div>
+    <Fragment>
       {process.env.NODE_ENV === "development" && (
         <div>Текущая версия проекта {projectVersion}</div>
       )}
-    </div>
+    </Fragment>
   );
 };
 
