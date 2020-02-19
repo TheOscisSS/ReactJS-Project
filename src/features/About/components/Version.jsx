@@ -6,7 +6,7 @@ const Version = () => {
   return (
     <Fragment>
       {process.env.NODE_ENV === "development" && (
-        <div>Текущая версия проекта {projectVersion}</div>
+        <div>Current project version is: {projectVersion}</div>
       )}
     </Fragment>
   );
