@@ -1,8 +1,8 @@
 import React from "react";
 import { Form, Button } from "antd";
 
-import FormField from "./FormField";
-import styles from "../styles.module.scss";
+import FormField from "shared/forms/FormField";
+import styles from "./styles.module.scss";
 
 const Register = props => (
   <div>

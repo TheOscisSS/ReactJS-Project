@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Button } from "antd";
 
-import FormField from "./FormField";
-import styles from "../styles.module.scss";
+import FormField from "shared/forms/FormField";
+import styles from "./styles.module.scss";
 
 const Login = props => (
   <div>

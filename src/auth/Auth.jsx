@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Register from "./RegisterForm";
 import Login from "./LoginForm";
-import styles from "../styles.module.scss";
+import styles from "./styles.module.scss";
 
 const Sign = props => (
   <div className={styles.auth}>
