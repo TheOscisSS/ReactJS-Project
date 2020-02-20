@@ -11,9 +11,7 @@ const Register = ({
   isSubmitting,
   handleChange,
   handleBlur,
-  handleSubmit,
-  handleReset,
-  dirty
+  handleSubmit
 }) => (
   <div>
     <div className={styles.auth__title}>
@@ -35,7 +33,7 @@ const Register = ({
         />
         <FormField
           name='email'
-          type='email'
+          type='text'
           placeholder='Login (Email)'
           icon='mail'
           handleChange={handleChange}
