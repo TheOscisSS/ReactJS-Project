@@ -3,9 +3,9 @@ import { Menu } from "antd";
 
 const Sidebar = () => (
   <Menu>
-    <Menu.Item>Новый опрос</Menu.Item>
-    <Menu.Item>Мои опросы</Menu.Item>
-    <Menu.Item>Шаблоны опросов</Menu.Item>
+    <Menu.Item>New survey</Menu.Item>
+    <Menu.Item>My surveys</Menu.Item>
+    <Menu.Item>Templates surveys</Menu.Item>
   </Menu>
 );
 
