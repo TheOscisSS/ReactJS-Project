@@ -13,30 +13,31 @@ const Login = props => (
     <div className={styles.auth__container}>
       <Form>
         <FormField
-          name='Username'
-          type='text'
-          placeholder='Username'
-          icon='user'
+          name="Username"
+          type="text"
+          placeholder="Username"
+          icon="user"
         />
         <FormField
-          name='Password'
-          type='password'
-          placeholder='Password'
-          icon='lock'
+          name="Password"
+          type="password"
+          placeholder="Password"
+          icon="lock"
         />
         <Form.Item>
           <Button
-            type='primary'
-            size='large'
-            htmlType='submit'
-            className={styles.auth__button}>
+            type="primary"
+            size="large"
+            htmlType="submit"
+            className={styles.auth__button}
+          >
             Log in
           </Button>
         </Form.Item>
         <Form.Item>
           <div className={styles.auth__other}>
-            <Link to='signup'>Sign up</Link>
-            <Link to='forgot'>Forgot password?</Link>
+            <Link to="signup">Sign up</Link>
+            <Link to="forgot">Forgot password?</Link>
           </div>
         </Form.Item>
       </Form>

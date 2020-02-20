@@ -10,12 +10,12 @@ const Header = () => (
     <nav className={styles.header__navigation}>
       <ul className={styles.header__ul}>
         <li>
-          <Link className={styles.header__link} to='/about'>
+          <Link className={styles.header__link} to="/about">
             About
           </Link>
         </li>
         <li>
-          <Link className={styles.header__link} to='/signin'>
+          <Link className={styles.header__link} to="/signin">
             Log in
           </Link>
         </li>

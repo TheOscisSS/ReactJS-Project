@@ -12,35 +12,36 @@ const Register = props => (
     <div className={styles.auth__container}>
       <Form>
         <FormField
-          name='Username'
-          type='text'
-          placeholder='Username'
-          icon='user'
+          name="Username"
+          type="text"
+          placeholder="Username"
+          icon="user"
         />
         <FormField
-          name='Login'
-          type='email'
-          placeholder='Login (Email)'
-          icon='mail'
+          name="Login"
+          type="email"
+          placeholder="Login (Email)"
+          icon="mail"
         />
         <FormField
-          name='Password'
-          type='password'
-          placeholder='Password'
-          icon='lock'
+          name="Password"
+          type="password"
+          placeholder="Password"
+          icon="lock"
         />
         <FormField
-          name='Password_confirm'
-          type='password'
-          placeholder='Confirm password'
-          icon='lock'
+          name="Password_confirm"
+          type="password"
+          placeholder="Confirm password"
+          icon="lock"
         />
         <Form.Item>
           <Button
-            type='primary'
-            size='large'
-            htmlType='submit'
-            className={styles.auth__button}>
+            type="primary"
+            size="large"
+            htmlType="submit"
+            className={styles.auth__button}
+          >
             Create account
           </Button>
         </Form.Item>
