@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Icon, Input } from "antd";
 
-import validateStatus from "../validateStatus";
+import validateStatus from "auth/validateStatus";
 
 const FormField = ({
   name,
@@ -18,7 +18,8 @@ const FormField = ({
   <Form.Item
     hasFeedback={hasFeedback}
     validateStatus={validateStatus(touched[name], errors[name])}
-    help={touched[name] && errors[name]}>
+    help={touched[name] && errors[name]}
+  >
     <Input
       id={name}
       type={type}

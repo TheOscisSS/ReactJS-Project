@@ -1,6 +1,4 @@
-import {
-  withFormik
-} from "formik";
+import { withFormik } from "formik";
 
 import Register from "./RegisterForm";
 
@@ -46,13 +44,10 @@ export default withFormik({
     return errors;
   },
 
-  handleSubmit: (values, {
-    setSubmitting
-  }) => {
+  handleSubmit: (values, { setSubmitting }) => {
     setTimeout(() => {
       alert(JSON.stringify(values));
       setSubmitting(false);
     }, 1000);
-  },
-
+  }
 })(Register);

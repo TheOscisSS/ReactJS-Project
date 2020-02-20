@@ -1,21 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Logo from "./Logo";
-import styles from "../styles.module.scss";
+import HeaderLogo from "./HeaderLogo";
+import styles from "./styles.module.scss";
 
 const Header = () => (
   <header className={styles.header}>
-    <Logo />
+    <HeaderLogo />
     <nav className={styles.header__navigation}>
       <ul className={styles.header__ul}>
         <li>
-          <Link className={styles.header__link} to='/about'>
+          <Link className={styles.header__link} to="/about">
             About
           </Link>
         </li>
         <li>
-          <Link className={styles.header__link} to='/signin'>
+          <Link className={styles.header__link} to="/signin">
             Log in
           </Link>
         </li>
