@@ -1,23 +1,23 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import { Header } from "components";
+import Header from "features/Header";
 
-const Home = React.lazy(() => import("pages/Home"));
-const About = React.lazy(() => import("pages/About"));
-const Sign = React.lazy(() => import("pages/Sign"));
+const Home = lazy(() => import("features/Home"));
+const About = lazy(() => import("features/About"));
+const Auth = lazy(() => import("features/Auth"));
 
 const App = () => {
   return (
-    <div className='wrapper'>
+    <div className="wrapper">
       <Header />
-      <React.Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path={["/signin", "/signup"]} component={Sign} />
-          <Route exact path='/about' component={About} />
+          <Route exact path="/" component={Home} />
+          <Route exact path={["/signin", "/signup"]} component={Auth} />
+          <Route exact path="/about" component={About} />
         </Switch>
-      </React.Suspense>
+      </Suspense>
     </div>
   );
 };
