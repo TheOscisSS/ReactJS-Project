@@ -1,8 +1,10 @@
 import { withFormik } from "formik";
+import { connect } from "react-redux";
 
+import { signIn } from "./authAction";
 import Login from "./LoginForm";
 
-export default withFormik({
+const LoginFormContainer = withFormik({
   mapPropsToValues: () => ({
     email: "",
     password: ""
@@ -22,10 +24,20 @@ export default withFormik({
     return errors;
   },
 
-  handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values));
+  handleSubmit: (values, { props, setSubmitting }) => {
+    props.signIn(values).then(({ status }) => {
       setSubmitting(false);
-    }, 1000);
+      console.log(status);
+      console.log(props);
+      if (status === "success") {
+        props.history.push(props.location);
+      }
+    });
   }
 })(Login);
+
+const mapDispatch = {
+  signIn
+};
+
+export default connect(null, mapDispatch)(LoginFormContainer);

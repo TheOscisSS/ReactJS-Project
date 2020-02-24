@@ -1,0 +1,16 @@
+.loading_page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loading_page__img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+.loading_page__title {
+  font-size: 20px;
+  font-weight: 100;
+}

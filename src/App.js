@@ -1,23 +1,38 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import Header from "layout/header";
+import Home from "home";
+import Auth from "auth";
+import Navbar from "layout/navbar";
+import PrivateRoute from "shared/privateRoute";
+import Loading from "shared/loading";
 
-const Home = lazy(() => import("home"));
 const About = lazy(() => import("about"));
-const Auth = lazy(() => import("auth"));
 
 const App = () => {
   return (
-    <div className="wrapper">
-      <Header />
-      <Suspense fallback={<div> Loading... </div>}>
+    <div className='wrapper'>
+      <Navbar />
+      <Loading>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <PrivateRoute
+            exact
+            path={["/", "/create", "/surveys", "/templates"]}
+            component={Home}
+          />
           <Route exact path={["/signin", "/signup"]} component={Auth} />
-          <Route exact path="/about" component={About} />
+          <Route
+            exact
+            path='/about'
+            render={() => (
+              <Suspense fallback={<div> Loading... </div>}>
+                <About />
+              </Suspense>
+            )}
+          />
+          <Route path='*' component={() => <div>404</div>} />
         </Switch>
-      </Suspense>
+      </Loading>
     </div>
   );
 };

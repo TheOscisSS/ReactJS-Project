@@ -4,16 +4,34 @@ import { Switch, Route } from "react-router-dom";
 import Register from "./RegisterFormContainer";
 import Login from "./LoginFormContainer";
 import styles from "./styles.module.scss";
+import { useHistory, useLocation } from "react-router-dom";
 
-const Sign = props => (
-  <div className={styles.auth}>
-    <div className={styles.auth__content}>
-      <Switch>
-        <Route exact path="/signup" component={Register} />
-        <Route exact path="/signin" component={Login} />
-      </Switch>
+const Sign = props => {
+  const history = useHistory();
+  const location = useLocation();
+
+  return (
+    <div className={styles.auth}>
+      <div className={styles.auth__content}>
+        <Switch>
+          <Route
+            exact
+            path='/signup'
+            render={() => (
+              <Register history={history} location={location.from || "/"} />
+            )}
+          />
+          <Route
+            exact
+            path='/signin'
+            render={() => (
+              <Login history={history} location={location.from || "/"} />
+            )}
+          />
+        </Switch>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Sign;

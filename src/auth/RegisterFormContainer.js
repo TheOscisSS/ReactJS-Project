@@ -1,8 +1,10 @@
 import { withFormik } from "formik";
+import { connect } from "react-redux";
 
+import { signUp } from "./authAction";
 import Register from "./RegisterForm";
 
-export default withFormik({
+const RegisterFormContainer = withFormik({
   mapPropsToValues: () => ({
     username: "",
     email: "",
@@ -44,10 +46,19 @@ export default withFormik({
     return errors;
   },
 
-  handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values));
+  handleSubmit: (values, { props, setSubmitting }) => {
+    props.signUp(values).then(({ status }) => {
       setSubmitting(false);
-    }, 1000);
+
+      if (status === "success") {
+        props.history.push(props.location);
+      }
+    });
   }
 })(Register);
+
+const mapDispatch = {
+  signUp
+};
+
+export default connect(null, mapDispatch)(RegisterFormContainer);
