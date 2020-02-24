@@ -8,7 +8,7 @@ const HeaderLogo = () => (
   <Link to="/">
     <div className={styles.header__logo}>
       <img className={styles.header__img} src={penguin} alt="logo" />
-      <span className={styles.header__title}>ServeyPenguin</span>
+      <span className={styles.header__title}>SurveyPenguin</span>
     </div>
   </Link>
 );

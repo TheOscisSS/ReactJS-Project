@@ -47,11 +47,14 @@ const RegisterFormContainer = withFormik({
   },
 
   handleSubmit: (values, { props, setSubmitting }) => {
-    props.signUp(values).then(({ status }) => {
-      setSubmitting(false);
+    const { signUp, history, from } = props;
 
+    signUp(values).then(({ status }) => {
+      setSubmitting(false);
+      console.log(status);
+      console.log(props);
       if (status === "success") {
-        props.history.push(props.location);
+        history.replace(from);
       }
     });
   }

@@ -10,23 +10,21 @@ const Sign = props => {
   const history = useHistory();
   const location = useLocation();
 
+  let { from } = location.state || { from: { pathname: "/" } };
+
   return (
     <div className={styles.auth}>
       <div className={styles.auth__content}>
         <Switch>
           <Route
             exact
-            path='/signup'
-            render={() => (
-              <Register history={history} location={location.from || "/"} />
-            )}
+            path="/signup"
+            render={() => <Register history={history} from={from} />}
           />
           <Route
             exact
-            path='/signin'
-            render={() => (
-              <Login history={history} location={location.from || "/"} />
-            )}
+            path="/signin"
+            render={() => <Login history={history} from={from} />}
           />
         </Switch>
       </div>

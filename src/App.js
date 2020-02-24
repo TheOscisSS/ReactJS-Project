@@ -11,7 +11,7 @@ const About = lazy(() => import("about"));
 
 const App = () => {
   return (
-    <div className='wrapper'>
+    <div className="wrapper">
       <Navbar />
       <Loading>
         <Switch>
@@ -23,14 +23,14 @@ const App = () => {
           <Route exact path={["/signin", "/signup"]} component={Auth} />
           <Route
             exact
-            path='/about'
+            path="/about"
             render={() => (
               <Suspense fallback={<div> Loading... </div>}>
                 <About />
               </Suspense>
             )}
           />
-          <Route path='*' component={() => <div>404</div>} />
+          <Route path="*" component={() => <div> 404 </div>} />
         </Switch>
       </Loading>
     </div>

@@ -14,17 +14,20 @@ const rrfConfig = {
   enableLogging: "false"
 };
 
+window.store = store;
+
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider
       firebase={firebase}
       config={rrfConfig}
       createFirestoreInstance={createFirestoreInstance}
-      dispatch={store.dispatch}>
+      dispatch={store.dispatch}
+    >
       <Router>
         <App />
-      </Router>
-    </ReactReduxFirebaseProvider>
+      </Router>{" "}
+    </ReactReduxFirebaseProvider>{" "}
   </Provider>,
   document.getElementById("root")
 );
