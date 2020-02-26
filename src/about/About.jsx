@@ -1,6 +1,6 @@
 import React from "react";
 
-import Version from "./components/Version";
+import Version from "./AboutVersion";
 
 const About = () => (
   <div>
