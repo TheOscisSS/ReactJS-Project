@@ -1,21 +1,16 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import NavbarLogo from "./NavbarLogo";
 import SignedOutNavbar from "./SignedOutNavbar";
 import SignedInNavbar from "./SignedInNavbar";
-import { signOut } from "auth/authAction";
 import styles from "./styles.module.scss";
 
 const Navbar = props => {
-  const { auth, signOut } = props;
+  const auth = useSelector(state => state.firebase.auth);
 
-  const link = auth.uid ? (
-    <SignedInNavbar signOut={signOut} />
-  ) : (
-    <SignedOutNavbar />
-  );
+  const link = auth.uid ? <SignedInNavbar /> : <SignedOutNavbar />;
 
   return (
     <header className={styles.header}>
@@ -34,14 +29,4 @@ const Navbar = props => {
   );
 };
 
-const mapState = state => {
-  return {
-    auth: state.firebase.auth
-  };
-};
-
-const mapDispatch = {
-  signOut
-};
-
-export default connect(mapState, mapDispatch)(Navbar);
+export default Navbar;

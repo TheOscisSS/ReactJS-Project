@@ -1,7 +1,7 @@
 import { withFormik } from "formik";
 import { connect } from "react-redux";
 
-import { signIn } from "./authAction";
+import { signIn, clearError } from "./authAction";
 import Login from "./LoginForm";
 
 const LoginFormContainer = withFormik({
@@ -24,18 +24,28 @@ const LoginFormContainer = withFormik({
     return errors;
   },
 
-  handleSubmit: (values, { props, setSubmitting }) => {
-    const { signIn, history, from } = props;
+  handleSubmit: (values, { props, setSubmitting, resetForm }) => {
+    const { signIn } = props;
 
-    signIn(values).then(() => {
+    signIn(values).then(result => {
       setSubmitting(false);
-      history.replace(from);
+
+      if (result.type === "error") {
+        resetForm();
+      }
     });
   }
 })(Login);
 
-const mapDispatch = {
-  signIn
+const mapState = state => {
+  return {
+    authError: state.auth.authError
+  };
 };
 
-export default connect(null, mapDispatch)(LoginFormContainer);
+const mapDispatch = {
+  signIn,
+  clearError
+};
+
+export default connect(mapState, mapDispatch)(LoginFormContainer);

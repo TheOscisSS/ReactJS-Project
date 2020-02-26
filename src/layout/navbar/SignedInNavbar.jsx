@@ -1,13 +1,21 @@
 import React from "react";
 import { Dropdown, Menu, Icon } from "antd";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signOut } from "auth/authAction";
 
 import styles from "./styles.module.scss";
 
-export default props => {
+const SignedInNavbar = props => {
+  const dispatch = useDispatch();
+
+  const signOutHandler = () => {
+    dispatch(signOut());
+  };
+
   const menu = (
     <Menu>
-      <Menu.Item onClick={props.signOut}>Log off</Menu.Item>
+      <Menu.Item onClick={signOutHandler}>Log off</Menu.Item>
     </Menu>
   );
 
@@ -20,3 +28,5 @@ export default props => {
     </Dropdown>
   );
 };
+
+export default SignedInNavbar;

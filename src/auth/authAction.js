@@ -1,14 +1,11 @@
 export const signUp = credentials => {
-  return (dispatch, getState, {
-    getFirebase
-  }) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firebase = getFirebase();
 
     return firebase
       .auth()
       .createUserWithEmailAndPassword(credentials.email, credentials.password)
-      .then(user => {
-        console.log(user);
+      .then(() => {
         dispatch({
           type: "SIGN_UP_SUCCESS"
         });
@@ -23,9 +20,7 @@ export const signUp = credentials => {
 };
 
 export const signIn = credentials => {
-  return (dispatch, getState, {
-    getFirebase
-  }) => {
+  return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
 
     return firebase
@@ -35,20 +30,21 @@ export const signIn = credentials => {
         dispatch({
           type: "SIGN_IN_SUCCESS"
         });
+
+        return { type: "success" };
       })
       .catch(err => {
         dispatch({
-          type: "SIGN_IN_ERROR",
-          err
+          type: "SIGN_IN_ERROR"
         });
+
+        return { type: "error" };
       });
   };
 };
 
 export const signOut = () => {
-  return (dispatch, getState, {
-    getFirebase
-  }) => {
+  return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
 
     firebase
@@ -60,4 +56,9 @@ export const signOut = () => {
         });
       });
   };
+};
+
+export const clearError = () => {
+  console.log("cleared");
+  return { type: "CLEAR_ERRORS" };
 };

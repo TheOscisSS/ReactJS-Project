@@ -29,6 +29,11 @@ export default (state = initState, action) => {
         ...state,
         authError: null
       };
+    case "CLEAR_ERRORS":
+      return {
+        ...state,
+        authError: null
+      };
     default:
       return state;
   }

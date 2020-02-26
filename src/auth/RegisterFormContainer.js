@@ -1,7 +1,7 @@
 import { withFormik } from "formik";
 import { connect } from "react-redux";
 
-import { signUp } from "./authAction";
+import { signUp, clearError } from "./authAction";
 import Register from "./RegisterForm";
 
 const RegisterFormContainer = withFormik({
@@ -47,21 +47,23 @@ const RegisterFormContainer = withFormik({
   },
 
   handleSubmit: (values, { props, setSubmitting }) => {
-    const { signUp, history, from } = props;
+    const { signUp } = props;
 
-    signUp(values).then(({ status }) => {
+    signUp(values).then(() => {
       setSubmitting(false);
-      console.log(status);
-      console.log(props);
-      if (status === "success") {
-        history.replace(from);
-      }
     });
   }
 })(Register);
 
-const mapDispatch = {
-  signUp
+const mapState = state => {
+  return {
+    authError: state.auth.authError
+  };
 };
 
-export default connect(null, mapDispatch)(RegisterFormContainer);
+const mapDispatch = {
+  signUp,
+  clearError
+};
+
+export default connect(mapState, mapDispatch)(RegisterFormContainer);

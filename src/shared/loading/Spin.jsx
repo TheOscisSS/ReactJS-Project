@@ -1,7 +1,9 @@
 import React from "react";
-import { Spin, Icon } from "antd";
+import { Spin as BaseSpin, Icon } from "antd";
 
-export default ({ size }) => {
+const Spin = ({ size }) => {
   const antIcon = <Icon type='loading' style={{ fontSize: size }} spin />;
-  return <Spin indicator={antIcon} />;
+  return <BaseSpin indicator={antIcon} />;
 };
+
+export default Spin;

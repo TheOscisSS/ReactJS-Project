@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 
 import styles from "./styles.module.scss";
 
-export default () => {
+const SignedOutNavbar = () => {
   return (
     <Link className={styles.header__link} to='/signin'>
       Log in
     </Link>
   );
 };
+
+export default SignedOutNavbar;

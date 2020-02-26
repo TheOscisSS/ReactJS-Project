@@ -11,23 +11,24 @@ import App from "./App";
 import "styles.scss";
 
 const rrfConfig = {
-  enableLogging: "false"
+  userProfile: "users",
+  useFirestoreForProfile: true
 };
 
-window.store = store;
+const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch,
+  createFirestoreInstance
+};
 
 ReactDOM.render(
   <Provider store={store}>
-    <ReactReduxFirebaseProvider
-      firebase={firebase}
-      config={rrfConfig}
-      createFirestoreInstance={createFirestoreInstance}
-      dispatch={store.dispatch}
-    >
+    <ReactReduxFirebaseProvider {...rrfProps}>
       <Router>
         <App />
-      </Router>{" "}
-    </ReactReduxFirebaseProvider>{" "}
+      </Router>
+    </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById("root")
 );
