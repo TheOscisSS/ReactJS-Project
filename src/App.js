@@ -9,16 +9,15 @@ const Auth = lazy(() => import("auth"));
 
 const App = () => {
   return (
-    <div className="wrapper">
+    <div className='wrapper'>
       <Header />
       <Suspense fallback={<div> Loading... </div>}>
-        {" "}
         <Switch>
-          <Route exact path="/" component={Home} />{" "}
-          <Route exact path={["/signin", "/signup"]} component={Auth} />{" "}
-          <Route exact path="/about" component={About} />{" "}
-        </Switch>{" "}
-      </Suspense>{" "}
+          <Route exact path='/' component={Home} />
+          <Route exact path={["/signin", "/signup"]} component={Auth} />
+          <Route exact path='/about' component={About} />
+        </Switch>
+      </Suspense>
     </div>
   );
 };
