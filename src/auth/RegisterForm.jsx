@@ -34,13 +34,13 @@ const Register = ({
             className={styles.auth__notification}
             error={authError}
             message={authError}
-            type='error'
+            type="error"
           />
           <FormField
-            name='username'
-            type='text'
-            placeholder='Username'
-            icon='user'
+            name="username"
+            type="text"
+            placeholder="Username"
+            icon="user"
             handleChange={handleChange}
             handleBlur={handleBlur}
             values={values}
@@ -49,10 +49,10 @@ const Register = ({
             hasFeedback
           />
           <FormField
-            name='email'
-            type='text'
-            placeholder='Login (Email)'
-            icon='mail'
+            name="email"
+            type="text"
+            placeholder="Login (Email)"
+            icon="mail"
             handleChange={handleChange}
             handleBlur={handleBlur}
             values={values}
@@ -61,10 +61,10 @@ const Register = ({
             hasFeedback
           />
           <FormField
-            name='password'
-            type='password'
-            placeholder='Password'
-            icon='lock'
+            name="password"
+            type="password"
+            placeholder="Password"
+            icon="lock"
             handleChange={handleChange}
             handleBlur={handleBlur}
             values={values}
@@ -73,10 +73,10 @@ const Register = ({
             hasFeedback
           />
           <FormField
-            name='password_confirm'
-            type='password'
-            placeholder='Confirm password'
-            icon='lock'
+            name="password_confirm"
+            type="password"
+            placeholder="Confirm password"
+            icon="lock"
             handleChange={handleChange}
             handleBlur={handleBlur}
             values={values}
@@ -86,11 +86,12 @@ const Register = ({
           />
           <Form.Item>
             <Button
-              type='primary'
-              size='large'
-              htmlType='submit'
+              type="primary"
+              size="large"
+              htmlType="submit"
               loading={isSubmitting}
-              className={styles.auth__button}>
+              className={styles.auth__button}
+            >
               Create account
             </Button>
           </Form.Item>

@@ -35,13 +35,13 @@ const Login = ({
             className={styles.auth__notification}
             error={authError}
             message={authError}
-            type='error'
+            type="error"
           />
           <FormField
-            name='email'
-            type='text'
-            placeholder='Login (Email)'
-            icon='user'
+            name="email"
+            type="text"
+            placeholder="Login (Email)"
+            icon="user"
             handleChange={handleChange}
             handleBlur={handleBlur}
             values={values}
@@ -50,10 +50,10 @@ const Login = ({
             hasFeedback={!values.email}
           />
           <FormField
-            name='password'
-            type='password'
-            placeholder='Password'
-            icon='lock'
+            name="password"
+            type="password"
+            placeholder="Password"
+            icon="lock"
             handleChange={handleChange}
             handleBlur={handleBlur}
             values={values}
@@ -63,18 +63,19 @@ const Login = ({
           />
           <Form.Item>
             <Button
-              type='primary'
-              size='large'
-              htmlType='submit'
+              type="primary"
+              size="large"
+              htmlType="submit"
               loading={isSubmitting}
-              className={styles.auth__button}>
+              className={styles.auth__button}
+            >
               Log in
             </Button>
           </Form.Item>
           <Form.Item>
             <div className={styles.auth__other}>
-              <Link to='signup'>Sign up</Link>
-              <Link to='forgot'>Forgot password?</Link>
+              <Link to="signup">Sign up</Link>
+              <Link to="forgot">Forgot password?</Link>
             </div>
           </Form.Item>
         </Form>

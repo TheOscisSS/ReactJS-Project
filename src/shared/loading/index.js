@@ -11,7 +11,7 @@ const Loding = ({ children }) => {
   if (!isLoaded(auth)) {
     return (
       <div className={styles.loading_page}>
-        <Spin size='40px' />
+        <Spin size="40px" />
       </div>
     );
   }

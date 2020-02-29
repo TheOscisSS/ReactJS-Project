@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 
 const SignedOutNavbar = () => {
   return (
-    <Link className={styles.header__link} to='/signin'>
+    <Link className={styles.header__link} to="/signin">
       Log in
     </Link>
   );

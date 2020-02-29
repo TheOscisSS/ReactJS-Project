@@ -10,8 +10,8 @@ const Auth = props => {
     <div className={styles.auth}>
       <div className={styles.auth__content}>
         <Switch>
-          <Route exact path='/signup' component={Register} />
-          <Route exact path='/signin' component={Login} />
+          <Route exact path="/signup" component={Register} />
+          <Route exact path="/signin" component={Login} />
         </Switch>
       </div>
     </div>

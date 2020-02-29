@@ -21,9 +21,9 @@ const SignedInNavbar = props => {
 
   return (
     <Dropdown overlay={menu}>
-      <Link to='/profile' className={styles.header__link}>
+      <Link to="/profile" className={styles.header__link}>
         UserName
-        <Icon type='down' />
+        <Icon type="down" />
       </Link>
     </Dropdown>
   );
